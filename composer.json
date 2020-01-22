@@ -1,0 +1,12 @@
+{
+  "name": "laxmikandel/IT328/food",
+  "authors": [
+    {
+      "name": "Laxmi Kandel",
+      "email": "lkandel@mail.greeriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
