@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+</head>
+<body>
+<h1> Your order summary</h1>
+<p> You ordered {{@SESSION.food}} for {{@SESSION.meal}}.</p>
+<p> Condiments: {{ implode(", ",@SESSION.conds) }}</p>
+</body>
+</html>

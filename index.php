@@ -4,8 +4,6 @@
  * 01/15/2020
  * /IT328/chicken/index.php
  */
-
-
 //session
 session_start();
 //TURN ON ERROR REPORTING
@@ -81,25 +79,30 @@ $f3->route('GET /order', function (){
 
 
 //Defining a order2 route
-$f3->route('POST /order2', function (){
+$f3->route('POST /order2', function ($f3){//$f3 is an object
     //var dump($_POST);
     $_SESSION['food']=$_POST['food'];
+    $f3->set("meals",array("breakfast","meal","dinner"));
     $view = new Template();
     echo $view->render('views/form2.html');
 });
 
-$f3->route('POST /order3', function (){
-    //var dump($_POST);
-    $_SESSION['meal']=$_POST['meal'];
+$f3->route('POST /order3', function ($f3){//HAVE TO HAVE F3 PASSED WHEN WE USE REPEAT
+//    var dump($_POST);
+    $_SESSION['meal']=$_POST['meal'];//When the post meal is stored in session it will be visible every where
+    $f3->set('condiments' , array('mayonnaise','mustard','ketchup'));
+//    condiments is a key and mayonnaise and other are values
     $view = new Template();
     echo $view->render('views/form3.html');
 });
 
 $f3->route('POST /summary', function (){
-    $_SESSION['size'] = $_POST['size'];
-    $_SESSION['beverage'] = $_POST['beverage'];
+//    $_SESSION['size'] = $_POST['size'];
+//    $_SESSION['beverage'] = $_POST['beverage'];
+
+    $_SESSION['conds']=$_POST['conds'];
     $view = new Template();
-    echo $view->render('views/result.html');
+    echo $view->render('views/summary.html');
 });
 //Run fat free
 $f3-> run();

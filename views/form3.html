@@ -8,22 +8,30 @@
 <body>
 <h1> Food Order</h1>
 <form method="post" action="summary">
-    <label> Select Drink </label>
-    <select name="beverage">
-        <option value="Coke">Coke</option>
-        <option value="Pepsi">Pepsi</option>
-        <option value="Dr.pepper">Dr.pepper</option>
-        <option value="Hot coffee">Hot coffee</option>
-    </select>
+    <p>Select Condiments</p><br>
+<!--    Set array in the index page and get the array in the form page using repeat-->
+<!--    //value is each variable inside the array?-->
+<!--    ucfirst change the first letter to capital of the values-->
+    <repeat group="{{@condiments}}" value="{{@cond}}">
+        <label><input type="checkbox" name="conds[]" value="{{@cond}}"> {{ucfirst(@cond)}}</label>
+    </repeat>
+<!--    <label> Select Drink </label>-->
+<!--    <select name="beverage">-->
+<!--        <option value="Coke">Coke</option>-->
+<!--        <option value="Pepsi">Pepsi</option>-->
+<!--        <option value="Dr.pepper">Dr.pepper</option>-->
+<!--        <option value="Hot coffee">Hot coffee</option>-->
+<!--    </select>-->
 
-    <label> Select Size </label>
-    <select name="size">
-        <option value="None">None</option>
-        <option value="Large">Large</option>
-        <option value="Medium">Medium</option>
-        <option value="Small">Small</option>
-    </select>
+<!--    <label> Select Size </label>-->
+<!--    <select name="size">-->
+<!--        <option value="None">None</option>-->
+<!--        <option value="Large">Large</option>-->
+<!--        <option value="Medium">Medium</option>-->
+<!--        <option value="Small">Small</option>-->
+<!--    </select>-->
     <button type="submit">Next>></button>
+
 
 </form>
 </body>

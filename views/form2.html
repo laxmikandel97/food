@@ -10,10 +10,17 @@
 <h1> Food Order</h1>
 
 <form method="post" action="order3">
-    <label>Which meal?</label><br>
-    <input type="radio" name="meal" value="Breakfast">Breakfast <br>
-    <input type="radio" name="meal" value="Lunch"> Lunch<br>
-    <input type="radio" name="meal" value="Dinner"> Dinner<br>
+    <repeat group="{{@meals}}" value="{{@meal}}">
+        <label> <input type="radio" name="meal"
+        value="{{@meal}}">{{ucfirst(@meal)}} </label>
+    </repeat>
+
+
+<!--    <label>Which meal?</label><br>-->
+<!--    &lt;!&ndash;WE WILL BE REPLACING THIS WITH REPEAT &ndash;&gt;-->
+<!--    <input type="radio" name="meal" value="Breakfast">Breakfast <br>-->
+<!--    <input type="radio" name="meal" value="Lunch"> Lunch<br>-->
+<!--    <input type="radio" name="meal" value="Dinner"> Dinner<br>-->
     <button type="submit">Next>></button>
 </form>
 </body>
